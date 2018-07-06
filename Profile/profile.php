@@ -29,9 +29,30 @@ else
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="../css/MyStyle2.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript">  
+  function timer(){
+      var today = new Date();
+      
+      var dzien=today.getDate();
+      var miesiac=today.getMonth()+1;
+      var rok=today.getFullYear();
+      var godzina=today.getHours();
+      if (godzina<10) godzina = "0"+godzina;
+      var minuty=today.getMinutes();
+      if (minuty<10) minuty = "0"+minuty;
+      var sekundy=today.getSeconds();
+      if (sekundy<10) sekundy = "0"+sekundy;
+document.getElementById("zegar").innerHTML = 
+		 dzien+"/"+miesiac+"/"+rok+" | "+godzina+":"+minuty+":"+sekundy;
+            setTimeout("timer()",1000);  
+           }
+   </script>
+
+
 </head>
 
-<body>
+<body onload="timer();">
   <div class="form">
 
           <h1>Strona Domowa</h1>
@@ -71,7 +92,7 @@ else
           
     </div>
     <div class="form">
-        <h1><?php echo date("Y-m-d").", ".date("H:i"); ?></h1>
+        <h1><div id="zegar">Time</div></h1>
         <h3>Serwis nie powstal w celach komercyjnych </h3>
     
     </div>
